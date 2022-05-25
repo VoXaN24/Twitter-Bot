@@ -35,3 +35,4 @@ def datetday(): #Take date and time
 
 def madetweet(api,media,date): #Print a tweet with a img/vids and date and time
     tweet = "It's the %s/%s/%s at %s:%s:%s" % (date.day, date.month, date.year,date.hour, date.minute, date.second)
+    post_result = api.update_status(status=tweet, media_ids=[media.media_id])
