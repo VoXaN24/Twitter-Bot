@@ -1,6 +1,8 @@
 import tweepy #Python Library for Twitter
 import wget #Download img/vis
 import datetime #uuuh it's time ?
+import time #For Wait 20 min
+import os # For Delte file after
 
 def auth(conskey,conssecret,acctoken,acctokensecret): #Authentification
     auth = tweepy.OAuthHandler(conskey,conssecret)
@@ -63,12 +65,12 @@ def verifempty(value): # Verif Empty Value
         exit()
 
 def main():
-    consumer_key = ""
-    consumer_secret = ""
-    access_token = ""
-    access_token_secret = ""
-    okvalue = verifvalue(consumer_key,consumer_secret,access_token,access_token_secret)
-    auth = auth(consumer_key,consumer_secret,access_token,access_token_secret)
+    consumer_key = "" #Please set
+    consumer_secret = "" #Please set
+    access_token = "" #Please set
+    access_token_secret = "" #Please set
+    okvalue = verifvalue(consumer_key,consumer_secret,access_token,access_token_secret) #Verif
+    auth = auth(consumer_key,consumer_secret,access_token,access_token_secret) #Auth
     api = createapi(auth)
     testauth(api)
     print("Please imput the URL of the image/video url list \n")
@@ -77,4 +79,10 @@ def main():
     dlmedia(urllink,"url.txt")
     urllist = madealistfromfile()
     for i in range(len(urllist)):
-
+        dlmedia(urllink[i],"media")
+        media = uploadmedia("media",api)
+        date = datetday()
+        madetweet(api,media,date)
+        if os.path.exists("media"):
+            os.remove("media")
+        time.sleep(1800)
