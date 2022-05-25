@@ -70,8 +70,8 @@ def main():
     access_token = "" #Please set
     access_token_secret = "" #Please set
     okvalue = verifvalue(consumer_key,consumer_secret,access_token,access_token_secret) #Verif
-    auth = auth(consumer_key,consumer_secret,access_token,access_token_secret) #Auth
-    api = createapi(auth)
+    auths = auth(consumer_key,consumer_secret,access_token,access_token_secret) #Auth
+    api = createapi(auths)
     testauth(api)
     print("Please imput the URL of the image/video url list \n")
     urllink=str(input())
