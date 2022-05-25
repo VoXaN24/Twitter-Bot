@@ -68,6 +68,13 @@ def main():
     access_token = ""
     access_token_secret = ""
     okvalue = verifvalue(consumer_key,consumer_secret,access_token,access_token_secret)
+    auth = auth(consumer_key,consumer_secret,access_token,access_token_secret)
+    api = createapi(auth)
+    testauth(api)
     print("Please imput the URL of the image/video url list \n")
     urllink=str(input())
     verifempty(urllink)
+    dlmedia(urllink,"url.txt")
+    urllist = madealistfromfile()
+    for i in range(len(urllist)):
+
