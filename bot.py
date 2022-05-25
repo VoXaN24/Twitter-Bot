@@ -21,13 +21,9 @@ def testauth(api): #Test Auth
 def dlimg(url,file): #If u need to download the image or video
     wget.download(url,file)
 
-def uploadimg(imgname,api): #Upload IMG
-    img = api.media_upload(imgname)
-    return img
-
-def uploadvids(vidsname,api): #Upload VIDS
-    vids = api.media_upload(vids)
-    return vids
+def uploadmedia(medianame,api): #Upload Media
+    media = api.media_upload(medianame)
+    return media
 
 def datetday(): #Take date and time
     date = datetime.datetime.now()
@@ -36,3 +32,6 @@ def datetday(): #Take date and time
 def madetweet(api,media,date): #Print a tweet with a img/vids and date and time
     tweet = "It's the %s/%s/%s at %s:%s:%s" % (date.day, date.month, date.year,date.hour, date.minute, date.second)
     post_result = api.update_status(status=tweet, media_ids=[media.media_id])
+
+def main():
+    
