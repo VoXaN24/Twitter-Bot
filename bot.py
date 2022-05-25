@@ -18,7 +18,7 @@ def testauth(api): #Test Auth
     except:
         print("Error during authentication")
 
-def dlimg(url,file): #If u need to download the image or video
+def dlmedia(url,file): #If u need to download the image or video
     wget.download(url,file)
     printf("File Donwloaded")
 
@@ -57,9 +57,17 @@ def verifvalue(conskey,conssecret,acctoken,acctokensecret): #Verif if empty
         a = 1
     return a
 
+def verifempty(value): # Verif Empty Value
+    if value == "":
+        print("Please input something, the program close now")
+        exit()
+
 def main():
     consumer_key = ""
     consumer_secret = ""
     access_token = ""
     access_token_secret = ""
     okvalue = verifvalue(consumer_key,consumer_secret,access_token,access_token_secret)
+    print("Please imput the URL of the image/video url list \n")
+    urllink=str(input())
+    verifempty(urllink)
