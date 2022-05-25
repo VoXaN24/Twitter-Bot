@@ -1,6 +1,6 @@
 import tweepy #Python Library for Twitter
-import wget
-import datetime
+import wget #Download img/vis
+import datetime #uuuh it's time ?
 
 def auth(conskey,conssecret,acctoken,acctokensecret): #Authentification
     auth = tweepy.OAuthHandler(conskey,conssecret)
@@ -33,5 +33,11 @@ def madetweet(api,media,date): #Print a tweet with a img/vids and date and time
     tweet = "It's the %s/%s/%s at %s:%s:%s" % (date.day, date.month, date.year,date.hour, date.minute, date.second)
     post_result = api.update_status(status=tweet, media_ids=[media.media_id])
 
+def madealistfromfile(): #It's in the name buddy
+    a_file = open("url.txt", "r")
+    list_of_lists = [(line.strip()).split() for line in a_file]
+    a_file.close()
+
 def main():
-    
+    #YES
+    print('TO DO')
