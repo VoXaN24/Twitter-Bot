@@ -86,3 +86,5 @@ def main():
         if os.path.exists("media"):
             os.remove("media")
         time.sleep(1800)
+
+main()
