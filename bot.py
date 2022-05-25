@@ -20,7 +20,7 @@ def testauth(api): #Test Auth
 
 def dlmedia(url,file): #If u need to download the image or video
     wget.download(url,file)
-    printf("File Donwloaded")
+    print("File Donwloaded")
 
 def uploadmedia(medianame,api): #Upload Media
     media = api.media_upload(medianame)
